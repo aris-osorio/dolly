@@ -1,3 +1,4 @@
+import uuid 
 from django.db import models
 from listas.models import Lista
 from usuarios.models import Usuario
@@ -11,7 +12,7 @@ class Tarjeta(models.Model):
     dueño = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_vencimiento = models.DateTimeField(null = True)
-    posicion = models.IntegerField()
+    posicion = models.IntegerField(unique = True)
 
     def __str__(self):
         return self.nombre
