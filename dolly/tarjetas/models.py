@@ -5,6 +5,7 @@ from usuarios.models import Usuario
 
 # Create your models here.
 class Tarjeta(models.Model):
+    id = models.UUIDField(primary_key = True, default = uuid.uuid4, editable = False) 
     nombre = models.CharField(max_length = 200)
     lista = models.ForeignKey(Lista, on_delete = models.CASCADE)
     descripcion = models.CharField(max_length = 200)
